@@ -22,7 +22,7 @@ const Banner = () => {
     getData();
   }, []);
 
-  return <div>Banner</div>;
+  return <div>This is Banner</div>;
 };
 
 export default Banner;
