@@ -22,7 +22,35 @@ const Banner = () => {
     getData();
   }, []);
 
-  return <div>This is Banner</div>;
+  return (
+    <header
+      className={`banner 
+      bg-center bg-cover object-contain h-[448px]
+      bg-gradient-to-b from-transparent to-black`}
+      style={{
+        backgroundImage: `url("https://image.tmdb.org/t/p/original${movieInfo?.backdrop_path}")`,
+      }}
+    >
+      <div className="banner_fade h-full bg-gradient-to-b from-transparent to-black">
+        <div className="banner_contents">
+          <h1 className="banner_title">
+            {movieInfo?.title || movieInfo?.name || movieInfo?.original_name}
+          </h1>
+          <div className="banner_buttons">
+            {movieInfo?.videos?.results[0]?.key && (
+              <button className="banner_button play">Play</button>
+            )}
+          </div>
+          <p className="banner_description">{movieInfo?.overview}</p>
+          <a
+            href={`https://image.tmdb.org/t/p/original${movieInfo?.backdrop_path}`}
+          >
+            Go to image
+          </a>
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Banner;
